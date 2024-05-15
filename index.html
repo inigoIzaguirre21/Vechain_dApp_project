@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@vechain/connex@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+</head>
+<body>
+
+  <header class="bg-blue-300 text-white py-4">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold text-center">Product Delivery dApp</h1>
+      <p class="text-lg text-center mt-2">A decentralized application for tracking product deliveries</p>
+    </div>
+  </header>
+
+<div class="container mx-auto mt-8 px-4">
+  <div class="mt-8">
+    <h2 class="text-xl font-semibold mb-4">Application Description</h2>
+    <p class="text-gray-700">
+      This decentralized application (dApp) is built on the VeChainThor blockchain to facilitate the tracking and authentication of product deliveries. It allows providers to register the number of products delivered to customers securely on the blockchain. Customers can then verify the authenticity of their product deliveries by reading the registered information from the blockchain. This dApp ensures transparency and trust in the delivery process, leveraging the advantages of blockchain technology such as immutability and traceability.
+    </p>
+  </div>
+
+  <div id="authentication-section">
+    <div class="flex justify-center mb-4">
+      <p class="text-lg text-gray-700">Please login to access the application:</p>
+    </div>
+    <div class="flex justify-center">
+      <button class="py-2 px-4 rounded bg-blue-400 text-white hover:bg-blue-500 transition duration-500" id="login-btn">Login</button>
+    </div>
+  </div>
+<div class="hidden" id="dapp-body">
+  <div class="flex justify-center my-8">User address: <span id="user-address"></span></div>
+
+  </div>
+
+  <div id="provider-section" class="hidden mt-8">
+    <h2 class="text-xl font-semibold mb-4">Provider Section</h2>
+    <div class="flex flex-col items-center space-y-4 bg-gray-100 p-8 rounded-lg">
+      <p>Register number of products delivered:</p>
+      <input class="border border-gray-200 focus:outline-none p-2 rounded text-center" placeholder="Enter quantity" id="store-input">
+      <button class="px-2 py-1 rounded bg-blue-400 hover:bg-blue-500 text-white" id="store-btn">Store</button>
+    </div>
+  </div>
+
+  <div id="customer-section" class="hidden">
+    <h2 class="text-xl font-semibold mb-4">Customer Section</h2>
+    <div class="flex flex-col items-center space-y-4 bg-gray-100 p-8 rounded-lg">
+      <button class="px-2 py-1 rounded bg-blue-400 hover:bg-blue-500 text-white" id="read-btn">Read</button>
+      <div>Number of products registered: <span class="font-semibold" id="contract-number"></span></div>
+    </div>
+  </div>
+</div>
+<div id="product-table-container" class="mt-8">
+  <h2>Registered Product Quantities</h2>
+  <table id="product-table">
+    <thead>
+      <tr>
+        <th>Transaction ID</th>
+        <th>Timestamp</th>
+        <th>Product Quantity</th>
+        <th>Execution time [s]</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Table body will be populated dynamically with JavaScript -->
+    </tbody>
+  </table>
+</div>
+
+<div id="chart-container" class="mt-8">
+  <h2>Quantity of products delivered</h2>
+  <canvas id="products-sent-chart"></canvas> <!-- Canvas for the plotting -->
+</div>
+
+</div>
+<footer class="bg-gray-800 text-white py-4">
+  <div class="container mx-auto">
+    <p class="text-lg text-center">© 2024 Product Delivery dApp. All rights reserved.</p>
+    <p class="text-sm text-center">Designed and developed by Iñigo Izaguirre</p>
+  </div>
+</footer>
+<script type="module" src="/main.js"></script>
+</body>
+</html>
